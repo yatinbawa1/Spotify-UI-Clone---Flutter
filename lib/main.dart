@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spotify_ui/data/data.dart';
+import 'package:flutter_spotify_ui/screens/playlist_screen.dart';
 import 'package:flutter_spotify_ui/widgets/widgets.dart';
 
 void main() async {
@@ -14,7 +16,6 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -66,7 +67,14 @@ class Shell extends StatelessWidget {
       body: Column(children: [
         Expanded(
             child: Row(
-          children: [SideMenu()],
+          children: [
+            SideMenu(),
+            Expanded(
+              child: PlaylistScreen(
+                playList: lofihiphopPlaylist,
+              ),
+            ),
+          ],
         )),
         Container(
           height: 84.0,
